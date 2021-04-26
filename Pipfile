@@ -8,6 +8,7 @@ selenium = "*"
 xlrd = "*"
 flask-restful = "*"
 flask = "*"
+gunicorn = "*"
 
 [dev-packages]
 
