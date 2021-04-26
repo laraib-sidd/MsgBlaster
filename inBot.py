@@ -23,11 +23,17 @@ import xlrd
 #     print(sheet.cell_value(i, 0))
 #     names.append(sheet.cell_value(i, 0))
 # print(names)
+GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
+CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
 
 
 def scraper(names):
-    chrome_options = Options()
-    driver = webdriver.Chrome(options=chrome_options)
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument('--disable-gpu')
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.binary_location = GOOGLE_CHROME_PATH
+    driver = webdriver.Chrome(
+        execution_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
     #driver = webdriver.Chrome("/usr/local/bin/chromedriver", options = chrome_options)
     driver.get('https://instagram.com')
     time.sleep(6)
