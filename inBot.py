@@ -101,4 +101,3 @@ def scraper(names):
     #     time.sleep(60)
 
     driver.close()
-scraper(['laraib'])

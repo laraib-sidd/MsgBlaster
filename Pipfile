@@ -9,6 +9,7 @@ xlrd = "*"
 flask-restful = "*"
 flask = "*"
 gunicorn = "*"
+webdriver-manager = "*"
 
 [dev-packages]
 
