@@ -24,6 +24,8 @@ import xlrd
 #     names.append(sheet.cell_value(i, 0))
 # print(names)
 
+from webdriver_manager.chrome import ChromeDriverManager
+
 
 def scraper(names):
     chrome_options = webdriver.ChromeOptions()
@@ -31,8 +33,7 @@ def scraper(names):
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--disable-dev-shm-usage")
     chrome_options.add_argument("--no-sandbox")
-    driver = webdriver.Chrome(executable_path=os.environ.get(
-        "CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+    driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=chrome_options)
 
     #driver = webdriver.Chrome("/usr/local/bin/chromedriver", options = chrome_options)
     driver.get('https://instagram.com')
@@ -100,3 +101,4 @@ def scraper(names):
     #     time.sleep(60)
 
     driver.close()
+scraper(['laraib'])
