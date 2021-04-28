@@ -33,8 +33,9 @@ def scraper(names):
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--disable-dev-shm-usage")
     chrome_options.add_argument("--no-sandbox")
-    driver = webdriver.Chrome(chrome_options=chrome_options)
+    # driver = webdriver.Chrome(chrome_options=chrome_options)
 
+    driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=chrome_options) #For first time 
     #driver = webdriver.Chrome("/usr/local/bin/chromedriver", options = chrome_options)
     driver.get('https://instagram.com')
     time.sleep(6)

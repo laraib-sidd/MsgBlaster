@@ -18,7 +18,7 @@ def home():
         with open('usernames.txt', 'r+') as filehandler:
             names = filehandler.read()
             names = names.split('\n')
-            if len(names) > 3:
+            if len(names) > 20:
                 filehandler.truncate(0)
                 scraper(names)
         return {"response": "success"}
